@@ -41,15 +41,13 @@ function obtenerPorId(id){
         redirect: 'follow'
     };
     
-    fetch(`http://localhost/api/Car/${id}`, requestOptions)
+    fetch(`http://localhost/api/Message/${id}`, requestOptions)
     .then(response => response.json())
     .then(result => {
-        inputId.value = result.idCar
-        inputName.value = result.name
-        inputBrand.value = result.brand
-        inputYear.value = result.year
-        inputDescription.value = result.description
-        selectGama.innerHTML = `<option>${result.gama.name}</option>`
+        inputId.value = result.idMessage
+        inputMessage.value = result.messageText
+        selectCar.innerHTML = `<option>${result.car.name}</option>`
+        selectClient.innerHTML = `<option>${result.client.name}</option>`
     })
     .catch(error => console.log('error', error));
 }
@@ -60,7 +58,7 @@ function eliminar(){
         redirect: 'follow'
     };
     
-    fetch(`http://localhost/api/Car/${inputId.value}`, requestOptions)
+    fetch(`http://localhost/api/Message/${inputId.value}`, requestOptions)
     .then(response => window.location.reload())
     .catch(error => console.log('error', error));
 }
@@ -70,11 +68,8 @@ function actualizar(){
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-    "idCar": inputId.value,
-    "name": inputName.value,
-    "brand": inputBrand.value,
-    "year": inputYear.value,
-    "description": inputDescription.value
+    "idMessage": inputId.value,
+    "messageText": inputMessage.value,
     });
 
     var requestOptions = {
@@ -84,7 +79,7 @@ function actualizar(){
     redirect: 'follow'
     };
 
-    fetch("http://localhost/api/Car/update", requestOptions)
+    fetch("http://localhost/api/Message/update", requestOptions)
     .then(response => {
         window.location.reload()
     })
@@ -121,6 +116,7 @@ function crear(){
 }
 
 function obtenerCars(){
+    selectCar.innerHTML = null
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -137,6 +133,7 @@ function obtenerCars(){
 }
 
 function obtenerClients(){
+    selectClient.innerHTML = null
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'

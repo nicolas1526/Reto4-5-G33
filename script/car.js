@@ -124,6 +124,7 @@ function crear(){
 }
 
 function obtenerGamas(){
+    selectGama.innerHTML = null
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
