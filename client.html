@@ -60,7 +60,7 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                        <div class="mb-2 mx-1">
+                        <div id="contenedorId" class="mb-2 mx-1">
                             <label class="form-label" for="inputId"><b>Id</b></label>
                             <input class="form-control" id="inputId" type="number" placeholder="enter id">
                         </div>
@@ -83,9 +83,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success btn-modal-footer">Add</button>
+                    <button type="button" class="btn btn-success btn-modal-footer" onclick="crear()">Add</button>
                     <button type="button" class="btn btn-danger btn-modal-footer" onclick="eliminar()">Remove</button>
-                    <button type="button" class="btn btn-primary btn-modal-footer">Update</button>
+                    <button type="button" class="btn btn-primary btn-modal-footer" onclick="actualizar()">Update</button>
                 </div>
             </div>
         </div>
